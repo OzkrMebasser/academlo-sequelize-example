@@ -37,7 +37,8 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 exports.getUserById = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const user = await User.findOne({ where: { id } });
+  const user = await User.findOne({ where: { id }, include: [{ model: Post, include:[{ model: Comment}]}] });
+
 
   if (!user) {
     return next(new AppError(404, 'User not found'));
