@@ -11,12 +11,31 @@ const sequelize = new Sequelize({
   port: 5432,
   database: process.env.DB, // example
   dialect: 'postgres',
-  logging: false
+  logging: false,
+  	dialectOptions: {
+		ssl: {
+			require: true,
+			rejectUnauthorized: false,
+		},
+	},
 });
 
-PORT=4000
 
 
+// Host
+// ec2-3-216-221-31.compute-1.amazonaws.com
+// Database
+// d176b3t60f03hm
+// User
+// dxabqrwebxjoau
+// Port
+// 5432
+// Password
+// 15ad27badec632c60b8d7a57000f181881aec5a5b5c8c193fbc4c6899acf40f8
+// URI
+// postgres://dxabqrwebxjoau:15ad27badec632c60b8d7a57000f181881aec5a5b5c8c193fbc4c6899acf40f8@ec2-3-216-221-31.compute-1.amazonaws.com:5432/d176b3t60f03hm
+// Heroku CLI
+// heroku pg:psql postgresql-elliptical-57520 --app academlo-sequelize-example
 
 
 // Connect to Heroku cloud

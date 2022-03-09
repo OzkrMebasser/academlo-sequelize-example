@@ -1,4 +1,5 @@
 const { app } = require('./app');
+const dotenv = require('dotenv')
 
 // Utils
 const { sequelize } = require('./util/database');
@@ -18,9 +19,8 @@ sequelize
   .catch((err) => console.log(err));
 
 
-const startServer = () =>{
   const PORT = process.env.PORT || 4000;
-};
+
 
 app.listen(PORT, () => {
   console.log(`Express app running in ${PORT}`);
